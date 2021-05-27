@@ -1,6 +1,8 @@
 <?php
-
-class Prodip {
+/**
+ * Session Class
+ */
+class Session {
 	
 	public function __construct()
 	{

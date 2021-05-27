@@ -1,19 +1,47 @@
 <?php
-	//include("libs/Prodip.php");
-	//$pro = new Prodip();
-	//Controller/method/parameter
-	$url = $_GET['url'];
+	include("libs/Controller.php");
+
+	$url = isset($_GET['url']) ? $url = $_GET['url'] : NULL;
 	$url = rtrim($url,"/");
-	$url = explode("/", $url);
-	/*$url[0]
-	$url[1]
-	$url[2]*/
+	$url = explode("/", filter_var($url, FILTER_SANITIZE_URL));
 
-	include("Comtrollers/".$url[0].".php");
-	$cat = new $url[0]();
+	if (empty($url[0])) {
+		//Default Controller
+		include("app/Controllers/Front.php");
+		$controller = new Front();
+		$controller->index();
+		return false;
+	}
 
-	/*echo "<pre>";
-	print_r($url);
-	echo "</pre>";*/
+	$path = "app/Controllers/".$url[0].".php";
+	if (file_exists($path)) {
+		include $path;
+	}
+	$controller = new $url[0]();
+
+	//Method calling
+	if (isset($url[2])) {
+		if (method_exists($controller, $url[1])) {
+			$controller->{$url[1]}($url[2]);
+		} 
+		else {
+			echo "Error";
+		}
+	} 
+	else {
+		if (isset($url[1])) {
+			if (method_exists($controller, $url[1])) {
+				$controller->{$url[1]}();
+			} 
+			else {
+				echo "Error";
+			}
+		} 
+		else {
+			$controller->index();
+		}
+	}
+	
+
 
 ?>
