@@ -3,11 +3,12 @@
  * View Class
  */
 class View {
-	
-	public function __construct() {
-		echo "Hi a I am Prodip";
+
+	public function render($fileName) { //frontend/index
+		include "views/".$fileName.".php";
+		//include "views/frontend/index.php"; 
 	}
 }
-
+ //$view = new View();
 
 ?>

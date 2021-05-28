@@ -3,9 +3,10 @@
  * Controller Class
  */
 class Controller {
-	
+	protected $view;
+
 	public function __construct() {
-		echo "Hi a I am Main Controller Class";
+		$this->view = new View();
 	}
 }
 

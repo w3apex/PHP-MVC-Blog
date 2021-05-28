@@ -1,5 +1,6 @@
-<?php
+ <?php
 	include("libs/Controller.php");
+	include("libs/View.php");
 
 	$url = isset($_GET['url']) ? $url = $_GET['url'] : NULL;
 	$url = rtrim($url,"/");
