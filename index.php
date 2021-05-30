@@ -1,6 +1,10 @@
  <?php
 	include("libs/Controller.php");
 	include("libs/View.php");
+	include("libs/Model.php");
+	include("libs/Database.php");
+
+	include("config/database.php");
 
 	$url = isset($_GET['url']) ? $url = $_GET['url'] : NULL;
 	$url = rtrim($url,"/");

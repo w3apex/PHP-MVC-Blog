@@ -4,11 +4,18 @@
  */
 class View {
 
-	public function render($fileName) { //frontend/index
+	public function render($fileName, $data = false) {
+		if ($data == true) {
+			extract($data);
+		}
 		include "views/".$fileName.".php";
-		//include "views/frontend/index.php"; 
+	}
+
+	public function model($modelName) {
+		include "app/models/".$modelName.".php";
+		return new $modelName(); //new CatModel();
 	}
 }
- //$view = new View();
+
 
 ?>

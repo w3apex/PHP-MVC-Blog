@@ -3,22 +3,27 @@
  * Front Controller
  */
 class Front extends Controller {
-	//protected $view;
+
 	public function __construct() {
 		parent::__construct();
-		//$this->view = new View();
 	}
 
 	public function index() {
-		$this->view->render("frontend/index");
-		//$this->view->render("backend/admin/index");
+		$this->view->render("frontend/index"); //File Name
+	}
+
+	public function catList() {
+		$data = array();
+
+		$catModel = $this->view->model("CatModel"); // Model Name
+		$data['cat'] = $catModel->catList();
+		//$data['post'] = $postModel->postList();
+		//$data['brand'] = $brandModel->brandList();
+
+		$this->view->render("backend/category/index", $data); 
+
 	}
 }
 
-//$font = new Font();
-//$font->index();
-//$this->view-> = $font
-
-//index.php->Controller/Front.php->Libs/controller.php->Libs/View.php->render(page view)
 
 ?>

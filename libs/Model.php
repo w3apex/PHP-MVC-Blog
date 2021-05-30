@@ -3,10 +3,10 @@
  * Model Class
  */
 class Model {
-	
-	public function __construct()
-	{
-		echo "Hi a I am Prodip";
+	protected $db = array();
+
+	public function __construct(){
+		$this->db = new Database();
 	}
 }
 
