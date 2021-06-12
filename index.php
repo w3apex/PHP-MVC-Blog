@@ -15,7 +15,7 @@
 		include("app/Controllers/Front.php");
 		$controller = new Front();
 		$controller->index();
-		return false;
+		return false;					
 	}
 
 	$path = "app/Controllers/".$url[0].".php";
