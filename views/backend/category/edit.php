@@ -44,11 +44,14 @@
 
                         <div class="row">
                             <div class="col-md-12">
+                                <?php
+                                    foreach ($catbyid as $value) {
+                                ?>
                                 <form action="" method="POST" class="form-horizontal">
                                     <div class="form-group">
                                         <label for="name" class="col-sm-3 control-label">Category Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="name" id="name" placeholder="Category Name">
+                                            <input type="text" class="form-control" name="cat_name" id="name" value="<?php echo $value['cat_name'];?>">
                                         </div>
                                     </div>
 
@@ -58,6 +61,7 @@
                                         </div>
                                     </div>
                                 </form>
+                                <?php } ?>
                             </div>
                         </div>
 

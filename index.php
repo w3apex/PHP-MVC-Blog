@@ -5,6 +5,7 @@
 	include("libs/Database.php");
 
 	include("config/database.php");
+	include("config/path.php");
 
 	$url = isset($_GET['url']) ? $url = $_GET['url'] : NULL;
 	$url = rtrim($url,"/");

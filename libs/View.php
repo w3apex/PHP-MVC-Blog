@@ -9,12 +9,14 @@ class View {
 			extract($data);
 		}
 		include "views/".$fileName.".php";
+		//include "views/backend/category/create.php";
 	}
 
-	public function model($modelName) {
+	public function model($modelName) {//CatModel
 		include "app/models/".$modelName.".php";
 		return new $modelName(); //new CatModel();
 	}
+	
 }
 
 

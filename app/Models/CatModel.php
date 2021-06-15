@@ -8,8 +8,21 @@ class CatModel extends Model {
 		parent::__construct();
 	}
 
-	public function catList() {
-		return $this->db->select('category');
+	public function catList($table) {
+		$query = "SELECT * FROM $table";
+		return $this->db->select($query);
+	}
+
+	public function catById($table, $id) {
+		$query = "SELECT * FROM $table WHERE id = :id";
+		$data = array(
+			":id" => $id
+		);
+		return $this->db->select($query, $data);
+	}
+
+	public function insertCat($table, $data) {
+		return $this->db->insert($table, $data);
 	}
 }
 
