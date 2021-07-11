@@ -11,8 +11,8 @@
             <div class="leftside-content-header">
                 <ul class="breadcrumbs">
                     <li><i class="fa fa-home" aria-hidden="true"></i><a href="index.php">Dashboard</a></li>
-                    <li><a href="javascript:avoid(0)">Category</a></li>
-                    <li><a href="javascript:avoid(0)">Add Category</a></li>
+                    <li><a href="javascript:avoid(0)">Post</a></li>
+                    <li><a href="javascript:avoid(0)">Add Post</a></li>
                 </ul>
 
             </div>
@@ -35,10 +35,10 @@
                     <div class="panel-content">
                         <div class="row">
                             <div class="col-xs-6">
-                                <h4>Add New Category</h4>
+                                <h4>Add New Post</h4>
                             </div>
                             <div class="col-xs-6 text-right">
-                                <a href="catlist.php" class="btn btn-primary">All Categories</a>
+                                <a href="catlist.php" class="btn btn-primary">All Posts</a>
                             </div>
                         </div>
 
@@ -46,9 +46,9 @@
                             <div class="col-md-12">
                                 <form action="<?php echo BASE_URL; ?>/Category/store" method="POST" class="form-horizontal">
                                     <div class="form-group">
-                                        <label for="cat_name" class="col-sm-3 control-label">Category Name</label>
+                                        <label for="cat_name" class="col-sm-3 control-label">Post Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="cat_name" id="cat_name" placeholder="Category Name">
+                                            <input type="text" class="form-control" name="cat_name" id="cat_name" placeholder="Post Name">
                                         </div>
                                     </div>
 

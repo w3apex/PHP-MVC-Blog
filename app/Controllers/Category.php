@@ -3,27 +3,35 @@
  * Category Controller
  */
 class Category extends Controller {
-	//protected $view;
-	public function __construct() {
+	//protected $view; //Object of View Class
+	public function __construct() 
+	{
 		parent::__construct();
 		//$this->view = new View();
 	}
 
-	public function show() { //Category list
-		$data = array();
+	public function show() 
+	{ 	
 		$table = "category";
-		$catModel = $this->view->model("CatModel");//Model Name
+		$data = array();
+		$catModel = $this->view->model("CatModel");//Model Name // $catModel is an object
 		$data['cat'] = $catModel->catList($table);
-
 		$this->view->render("backend/category/index", $data); 
 	}
 
-	public function create() {
+	/*
+	$this->view = new View();
+	$this->view->render();
+	$this->view->model();
+	*/
+
+	public function create() 
+	{
 		$this->view->render("backend/category/create");
 	}
 
-	public function store() {
-		$data = array();
+	public function store() 
+	{	
 		$table = "category";
 		$name = $_POST['cat_name'];
 
@@ -32,35 +40,74 @@ class Category extends Controller {
 		);
 
 		$catModel = $this->view->model("CatModel");
-		$insertcat = $catModel->insertCat($table, $data);
+		$insert_cat = $catModel->insertCat($table, $data);
 
 		$msg = array();
-		if ($insertcat == 1) {
-			$msg['msg'] = "Category added successfully.";
-		} 
-		else {
-			$msg['msg'] = "Category not added...";
+
+		if ($insert_cat == TRUE) {
+			$msg['msg'] = "<span style='color:green;'>Category added successfully..</span>";
+		} else {
+			$msg['msg'] = "<span style='color:red;'>Category not added !!</span>";
 		}
-		$this->view->render("backend/category/create",$msg);
+	
+		$this->view->render("backend/category/create", $msg); 
 	}
 
-	public function edit() {
-		$data = array();
+	public function edit($id) 
+	{	
 		$table = "category";
-		$id = 5;
-		$catModel = $this->view->model("CatModel");//Model Name
-		$data['catbyid'] = $catModel->catById($table, $id);
+		$data = array();
+		//$id = 2;
+		$catModel = $this->view->model("CatModel");
+		$data['cat_by_id'] = $catModel->catById($table, $id);
+
 		$this->view->render("backend/category/edit",$data);
 	}
 
-	public function update() {
-		$data = array();
+	public function update() 
+	{
 		$table = "category";
-		$id = $_POST['id'];
-		$name = $_POST['cat_name'];
+		$id       = $_POST['id'];
+		$cat_name = $_POST['cat_name'];
+		$cond = "id = $id";
+
+		$data = array(
+			'cat_name' => $cat_name
+		);
+
+		$catModel = $this->view->model("CatModel");
+		$update_cat = $catModel->updateCat($table, $data, $cond);
+
+		$msg = array();
+
+		if ($update_cat == 1) {
+			$msg['msg'] = "<span style='color:green;'>Category updated successfully..</span>";
+		} else {
+			$msg['msg'] = "<span style='color:red;'>Category not updated !!</span>";
+		}
+	
+		$this->view->render("backend/category/index", $msg); 
+		
 	}
 	
-	public function destroy() {}
+	public function destroy($id) 
+	{
+		$table = "category";
+		$cond  = "id = $id";
+
+		$catModel = $this->view->model("CatModel");
+		$delete_cat = $catModel->deleteCat($table, $cond);
+
+		$msg = array();
+
+		if ($delete_cat == 1) {
+			$msg['msg'] = "<span style='color:green;'>Category deleted successfully ...</span>";
+		} else {
+			$msg['msg'] = "<span style='color:red;'>Category not deleted !!</span>";
+		}
+	
+		$this->view->render("backend/category/index", $msg); 
+	}
 }
 
 

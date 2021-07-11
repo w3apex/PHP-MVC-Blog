@@ -17,8 +17,8 @@
                     <li class="has-child-item close-item">
                         <a><i class="fa fa-pie-chart" aria-hidden="true"></i><span>Category Option</span> </a>
                         <ul class="nav child-nav level-1">
-                            <li><a href="addcat.php">Create Category</a></li>
-                            <li><a href="catlist.php">All Category</a></li>
+                            <li><a href="<?php echo BASE_URL;?>/Category/create/">Create Category</a></li>
+                            <li><a href="<?php echo BASE_URL;?>/Category/show/">All Category</a></li>
                         </ul>
                     </li>
 
@@ -26,8 +26,8 @@
                     <li class="has-child-item close-item">
                         <a><i class="fa fa-pie-chart" aria-hidden="true"></i><span>Post Option</span> </a>
                         <ul class="nav child-nav level-1">
-                            <li><a href="addpost.php">Create Post</a></li>
-                            <li><a href="postlist.php">All Post</a></li>
+                            <li><a href="<?php echo BASE_URL;?>/Post/create/">Create Post</a></li>
+                            <li><a href="<?php echo BASE_URL;?>/Post/show/">All Post</a></li>
                         </ul>
                     </li>
 

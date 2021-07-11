@@ -14,7 +14,7 @@
 
     <!--BASIC css-->
     <!-- ========================================================= -->
-    <link rel="stylesheet" href="../public/backend/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/batch/PHP MVC Blog/public/backend/vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="http://localhost/batch/PHP MVC Blog/public/backend/vendor/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="http://localhost/batch/PHP MVC Blog/public/backend/vendor/animate.css/animate.css">
     <!--SECTION css-->

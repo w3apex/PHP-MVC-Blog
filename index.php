@@ -31,7 +31,7 @@
 			$controller->{$url[1]}($url[2]);
 		} 
 		else {
-			echo "Error";
+			echo "Error ......";
 		}
 	} 
 	else {
