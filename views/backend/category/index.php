@@ -17,8 +17,23 @@
 		<div class="row animated fadeInUp">
 	        <div class="col-sm-12 col-md-8 col-md-offset-2">
 	        	<?php
-                    if (isset($msg)) {
-                        echo $msg;
+                    /*if (isset($_GET['msg'])) {
+                        //$msg = urldecode($_GET['msg']);
+                        $msg = unserialize(urldecode($_GET['msg']));
+
+                        foreach ($msg as $key => $value) {
+                        	echo $value;
+                        }
+                    }*/
+                ?>
+
+                <?php
+                    if (isset($_GET['msg'])) {
+                    	$msg = unserialize(urldecode($_GET['msg']));
+                        
+                        foreach ($msg as $key => $value) {
+                        	echo $value;
+                        }
                     }
                 ?>
 	            <div class="panel b-primary bt-md">
@@ -28,7 +43,7 @@
 	                            <h4>Manage Category</h4>
 	                        </div>
 	                        <div class="col-xs-6 text-right">
-	                            <a href="addcat.php" class="btn btn-primary">Add Category</a>
+	                            <a href="<?php echo BASE_URL; ?>/Category/create" class="btn btn-primary">Add Category</a>
 	                        </div>
 	                    </div>
 	                    <div class="table-responsive">
@@ -42,7 +57,7 @@
 	                            </thead>
 	                            <tbody>
 	                            	<?php
-	                            		if (isset($cat)) {                		
+	                            		/*if (isset($cat)) {  */              		
 		                            		$i = 0;
 		                            		foreach ($cat as $value) {
 		                            			$i++;
@@ -56,7 +71,7 @@
 	                            		</td>
 	                            	</tr>
 	                            	<?php	
-	                            			}
+	                            			/*}*/
 	                            		}
 	                            	?>	
 	                            </tbody>

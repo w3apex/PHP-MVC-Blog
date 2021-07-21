@@ -19,12 +19,6 @@ class Category extends Controller {
 		$this->view->render("backend/category/index", $data); 
 	}
 
-	/*
-	$this->view = new View();
-	$this->view->render();
-	$this->view->model();
-	*/
-
 	public function create() 
 	{
 		$this->view->render("backend/category/create");
@@ -43,7 +37,6 @@ class Category extends Controller {
 		$insert_cat = $catModel->insertCat($table, $data);
 
 		$msg = array();
-
 		if ($insert_cat == TRUE) {
 			$msg['msg'] = "<span style='color:green;'>Category added successfully..</span>";
 		} else {
@@ -99,14 +92,14 @@ class Category extends Controller {
 		$delete_cat = $catModel->deleteCat($table, $cond);
 
 		$msg = array();
-
 		if ($delete_cat == 1) {
-			$msg['msg'] = "<span style='color:green;'>Category deleted successfully ...</span>";
-		} else {
-			$msg['msg'] = "<span style='color:red;'>Category not deleted !!</span>";
+			$msg['success'] = "<span style='color:green;'>Category deleted successfully ...</span>";
+		} 
+		else {
+			$msg['error'] = "<span style='color:red;'>Category not deleted !!</span>";
 		}
-	
-		$this->view->render("backend/category/index", $msg); 
+		//index.php?name=Raj&age=35
+		header("Location:".BASE_URL."/Category/show?msg=".urlencode(serialize($msg)));
 	}
 }
 

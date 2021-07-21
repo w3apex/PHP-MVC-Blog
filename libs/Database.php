@@ -18,13 +18,6 @@ class Database extends PDO {
 		return $stmt->fetchAll();
 	}
 
-	/*public function select($table) {
-		$query = "SELECT * FROM $table";
-		$stmt = $this->prepare($query);
-		$stmt->execute();
-		return $stmt->fetchAll();
-	}*/
-
 	public function insert($table, $data) {
 
 		$keys   = implode(",", array_keys($data)); //name,email,phone
@@ -65,6 +58,17 @@ class Database extends PDO {
 		$query = "DELETE FROM $table WHERE $cond";
 		$stmt = $this->prepare($query);
 		return $stmt->execute();
+	}
+
+	public function machingRows($query, $data)
+	{	
+		$stmt = $this->prepare($query);
+
+		foreach ($data as $key => $value) {
+			$stmt->bindParam(":".$key, $value);
+		}
+		$stmt->execute();
+		return $stmt->fetchAll();
 	}
 }
 

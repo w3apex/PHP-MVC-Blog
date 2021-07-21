@@ -38,17 +38,35 @@
                                 <h4>Add New Post</h4>
                             </div>
                             <div class="col-xs-6 text-right">
-                                <a href="catlist.php" class="btn btn-primary">All Posts</a>
+                                <a href="<?php echo BASE_URL; ?>/Post/show" class="btn btn-primary">All Posts</a>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="<?php echo BASE_URL; ?>/Category/store" method="POST" class="form-horizontal">
+                                <form action="<?php echo BASE_URL; ?>/Post/store" method="POST" class="form-horizontal">
                                     <div class="form-group">
-                                        <label for="cat_name" class="col-sm-3 control-label">Post Name</label>
+                                        <label for="title" class="col-sm-3 control-label">Title</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="cat_name" id="cat_name" placeholder="Post Name">
+                                            <input type="text" class="form-control" name="title" id="title" placeholder="Category Name">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cat_id" class="col-sm-3 control-label">Category</label>
+                                        <div class="col-sm-9">
+                                            <select>
+                                                <option value="">Select Category</option>
+                                                <option value="1">National</option>
+                                                <option value="3">National</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cat_id" class="col-sm-3 control-label">Category</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" name="content" ></textarea>
                                         </div>
                                     </div>
 

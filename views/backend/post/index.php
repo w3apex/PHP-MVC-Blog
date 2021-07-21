@@ -9,54 +9,62 @@
 		    <div class="leftside-content-header">
 		        <ul class="breadcrumbs">
 		            <li><i class="fa fa-home" aria-hidden="true"></i><a href="#">Dashboard</a></li>
-		            <li><a href="javascript:avoid(0)">Category</a></li>
-		            <li><a href="javascript:avoid(0)">Manage Category</a></li>
+		            <li><a href="javascript:avoid(0)">Post</a></li>
+		            <li><a href="javascript:avoid(0)">Manage Post</a></li>
 		        </ul>
 		    </div>
 		</div>
 		<div class="row animated fadeInUp">
 	        <div class="col-sm-12 col-md-8 col-md-offset-2">
-	        	<?php
-                    if (isset($msg)) {
-                        echo $msg;
+                <?php
+                    if (isset($_GET['msg'])) {
+                    	$msg = unserialize(urldecode($_GET['msg']));
+                        
+                        foreach ($msg as $key => $value) {
+                        	echo $value;
+                        }
                     }
                 ?>
 	            <div class="panel b-primary bt-md">
 	                <div class="panel-content">
 	                    <div class="row">
 	                        <div class="col-xs-6">
-	                            <h4>Manage Category</h4>
+	                            <h4>Manage Post</h4>
 	                        </div>
 	                        <div class="col-xs-6 text-right">
-	                            <a href="addcat.php" class="btn btn-primary">Add Category</a>
+	                            <a href="<?php echo BASE_URL; ?>/Post/create" class="btn btn-primary">Add Post</a>
 	                        </div>
 	                    </div>
 	                    <div class="table-responsive">
 	                        <table id="basic-table" class="data-table table table-striped nowrap table-hover table-bordered" cellspacing="0" width="100%">
 	                            <thead>
 		                            <tr>
-		                                <th width="10%">SL.</th>
-		                                <th width="60%">Category Name</th>
-		                                <th width="30%">Action</th>
+		                                <th width="5%">SL.</th>
+		                                <th width="30%">Post Name</th>
+		                                <th width="10%">Category</th>
+		                                <th width="40%">Content</th>
+		                                <th width="15%">Action</th>
 		                            </tr>
 	                            </thead>
 	                            <tbody>
 	                            	<?php
-	                            		if (isset($cat)) {                		
+	                            		/*if (isset($cat)) {  */              		
 		                            		$i = 0;
-		                            		foreach ($cat as $value) {
+		                            		foreach ($post as $value) {
 		                            			$i++;
 	                            	?>
 	                            	<tr>
 	                            		<td><?php  echo $i; ?></td>
-	                            		<td><?php echo $value['cat_name']; ?></td>
+	                            		<td><?php echo $value['title']; ?></td>
+	                            		<td><?php echo $value['cat_id']; ?></td>
+	                            		<td><?php echo $value['content']; ?></td>
 	                            		<td>
-	                            			<a href="<?php echo BASE_URL;?>/Category/edit/<?php echo $value['id']; ?>">Edit</a> ||
-	                            			<a onclick="return confirm('Are you sure to delete?');" href="<?php echo BASE_URL;?>/Category/destroy/<?php echo $value['id']; ?>">Delete</a>
+	                            			<a href="<?php echo BASE_URL;?>/Post/edit/<?php echo $value['id']; ?>">Edit</a> ||
+	                            			<a onclick="return confirm('Are you sure to delete?');" href="<?php echo BASE_URL;?>/Post/destroy/<?php echo $value['id']; ?>">Delete</a>
 	                            		</td>
 	                            	</tr>
 	                            	<?php	
-	                            			}
+	                            			/*}*/
 	                            		}
 	                            	?>	
 	                            </tbody>

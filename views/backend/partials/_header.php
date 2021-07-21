@@ -58,7 +58,7 @@
                             <img alt="profile photo" src="http://localhost/batch/PHP MVC Blog/public/backend/images/avatar/avatar_user.jpg" />
                         </div>
                         <div class="user-info">
-                            <span class="user-name">Raj Sana</span>
+                            <span class="user-name"><?php echo $_SESSION['email'];?></span>
                             <span class="user-profile">Admin</span>
                         </div>
                         <i class="fa fa-plus icon-open" aria-hidden="true"></i>
@@ -78,7 +78,7 @@
                 <!--Log out -->
                 
                 <div class="header-section">
-                    <a href="?action=logout" data-toggle="tooltip" data-placement="left" title="Logout">
+                    <a href="<?php echo BASE_URL; ?>/Admin/logout" data-toggle="tooltip" data-placement="left" title="Logout">
                         <i class="fa fa-sign-out log-out" aria-hidden="true"></i>
                     </a>
                 </div>

@@ -22,7 +22,7 @@
                         </ul>
                     </li>
 
-                    <!--Category-->
+                    <!--Post-->
                     <li class="has-child-item close-item">
                         <a><i class="fa fa-pie-chart" aria-hidden="true"></i><span>Post Option</span> </a>
                         <ul class="nav child-nav level-1">
@@ -31,12 +31,12 @@
                         </ul>
                     </li>
 
-                    <!--Category-->
+                    <!--Slider-->
                     <li class="has-child-item close-item">
                         <a><i class="fa fa-pie-chart" aria-hidden="true"></i><span>Slider Option</span> </a>
                         <ul class="nav child-nav level-1">
-                            <li><a href="addslider.php">Create Slider</a></li>
-                            <li><a href="sliderlist.php">All Slider</a></li>
+                            <li><a href="#">Create Slider</a></li>
+                            <li><a href="#">All Slider</a></li>
                         </ul>
                     </li>
                 </ul>

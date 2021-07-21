@@ -11,8 +11,8 @@
             <div class="leftside-content-header">
                 <ul class="breadcrumbs">
                     <li><i class="fa fa-home" aria-hidden="true"></i><a href="index.php">Dashboard</a></li>
-                    <li><a href="javascript:avoid(0)">Category</a></li>
-                    <li><a href="javascript:avoid(0)">Edit Category</a></li>
+                    <li><a href="javascript:avoid(0)">Post</a></li>
+                    <li><a href="javascript:avoid(0)">Edit Post</a></li>
                 </ul>
 
             </div>
@@ -36,10 +36,10 @@
                     <div class="panel-content">
                         <div class="row">
                             <div class="col-xs-6">
-                                <h4>Edit Category</h4>
+                                <h4>Edit Post</h4>
                             </div>
                             <div class="col-xs-6 text-right">
-                                <a href="catlist.php" class="btn btn-primary">All Categories</a>
+                                <a href="catlist.php" class="btn btn-primary">All Posts</a>
                             </div>
                         </div>
 
@@ -48,10 +48,10 @@
                                 <?php
                                     foreach ($cat_by_id as $data) {
                                 ?>
-                                <form action="<?php echo BASE_URL;?>/Category/update" method="POST" class="form-horizontal">
+                                <form action="<?php echo BASE_URL;?>/Post/update" method="POST" class="form-horizontal">
                                     <input type="hidden" name="id" value="<?php echo $data['id'];?>">
                                     <div class="form-group">
-                                        <label for="cat_name" class="col-sm-3 control-label">Category Name</label>
+                                        <label for="cat_name" class="col-sm-3 control-label">Post Name</label>
                                         <div class="col-sm-9">
                                             <input type="text" name="cat_name" value="<?php echo $data['cat_name'];?>" id="cat_name" class="form-control">
                                         </div>

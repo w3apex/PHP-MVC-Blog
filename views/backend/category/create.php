@@ -38,7 +38,7 @@
                                 <h4>Add New Category</h4>
                             </div>
                             <div class="col-xs-6 text-right">
-                                <a href="catlist.php" class="btn btn-primary">All Categories</a>
+                                <a href="<?php echo BASE_URL; ?>/Category/show" class="btn btn-primary">All Categories</a>
                             </div>
                         </div>
 

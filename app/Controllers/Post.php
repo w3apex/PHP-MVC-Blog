@@ -19,12 +19,6 @@ class Post extends Controller {
 		$this->view->render("backend/post/index", $data); 
 	}
 
-	/*
-	$this->view = new View();
-	$this->view->render();
-	$this->view->model();
-	*/
-
 	public function create() 
 	{
 		$this->view->render("backend/post/create");
@@ -33,10 +27,14 @@ class Post extends Controller {
 	public function store() 
 	{	
 		$table = "post";
-		$name = $_POST['cat_name'];
+		$title    = $_POST['title'];
+		$cat_id  = $_POST['cat_id'];
+		$content = $_POST['content'];
 
 		$data = array(
-			'cat_name' => $name
+			'title'  => $title,
+			'cat_id' => $cat_id,
+			'content'=> $content
 		);
 
 		$postModel = $this->view->model("postModel");
@@ -55,7 +53,7 @@ class Post extends Controller {
 
 	public function edit($id) 
 	{	
-		$table = "category";
+		$table = "post";
 		$data = array();
 		//$id = 2;
 		$postModel = $this->view->model("postModel");
