@@ -11,6 +11,15 @@ class Login extends Controller {
 
 	public function index() 
 	{ 	
+		$this->login();
+	}
+
+	public function login() 
+	{ 	
+		Session::init();
+		if (Session::get("loggedIn") == true) {
+			header("Location:".BASE_URL."/Admin");
+		}
 		$this->view->render("backend/login/login"); 
 	}
 

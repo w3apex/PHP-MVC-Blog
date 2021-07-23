@@ -7,14 +7,7 @@ class Admin extends Controller {
 	public function __construct() 
 	{
 		parent::__construct();
-
-		Session::init();
-		$login = Session::get("loggedIn");
-		if ($login == false) {
-			Session::destroy();
-			header("Location:".BASE_URL."/Login");
-			exit();
-		}
+		Session::checkSession();
 	}
 
 	public function index() 

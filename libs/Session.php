@@ -8,6 +8,7 @@ class Session {
 		session_start();
 	}
 
+	//$arr = array("name" => "Raj");
 	public static function set($key, $val) {
 		$_SESSION[$key] = $val;
 		//$_SESSION["email"] = $email;
@@ -24,15 +25,17 @@ class Session {
 
 	public static function checkSession() {
 		self::init();
-		if (self::get('adminLogin') == false) {
+		if (self::get('loggedIn') == false) {
 			self::destroy();
+
+			header("Location:".BASE_URL."/Login");
 		}
 	}
 
 	public static function checkLogin() {
 		self::init();
-		if (self::get('adminLogin') == true) {
-			header("Location:index.php");
+		if (self::get('loggedIn') == true) {
+			header("Location:".BASE_URL."/Admin");
 		}
 	}
 
