@@ -55,24 +55,27 @@
                                     <div class="form-group">
                                         <label for="cat_id" class="col-sm-3 control-label">Category</label>
                                         <div class="col-sm-9">
-                                            <select>
+                                            <select name="cat_id" id="cat_id" class="cat_id">
                                                 <option value="">Select Category</option>
-                                                <option value="1">National</option>
-                                                <option value="3">National</option>
+                                                <?php 
+                                                    foreach ($cats as $cat) {
+                                                ?>
+                                                <option value="<?php echo $cat['id'];?>"><?php echo $cat['cat_name'];?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="cat_id" class="col-sm-3 control-label">Category</label>
+                                        <label for="content" class="col-sm-3 control-label">Content</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" name="content" ></textarea>
+                                            <textarea class="form-control" name="content" id="content"></textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-sm-offset-3 col-sm-9">
-                                            <button type="submit" class="btn btn-primary" name="catSubmit">Save</button>
+                                            <button type="submit" class="btn btn-primary">Save</button>
                                         </div>
                                     </div>
                                 </form>

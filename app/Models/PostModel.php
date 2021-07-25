@@ -11,7 +11,11 @@ class PostModel extends Model {
 
 	public function postList($table) 
 	{	
-		$query = "SELECT * FROM $table";
+		$query = "SELECT post.*, category.cat_name
+		FROM post
+		INNER JOIN category
+		ON post.cat_id = category.id";
+
 		return $this->db->select($query);
 	}
 

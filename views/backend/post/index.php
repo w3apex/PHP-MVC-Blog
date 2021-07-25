@@ -56,7 +56,7 @@
 	                            	<tr>
 	                            		<td><?php  echo $i; ?></td>
 	                            		<td><?php echo $value['title']; ?></td>
-	                            		<td><?php echo $value['cat_id']; ?></td>
+	                            		<td><?php echo $value['cat_name'];?></td>
 	                            		<td><?php echo $value['content']; ?></td>
 	                            		<td>
 	                            			<a href="<?php echo BASE_URL;?>/Post/edit/<?php echo $value['id']; ?>">Edit</a> ||

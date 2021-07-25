@@ -20,12 +20,17 @@ class Post extends Controller {
 	}
 
 	public function create() 
-	{
-		$this->view->render("backend/post/create");
+	{	
+		$table = "category";
+		$data = array();
+		$catModel = $this->view->model("CatModel");//Model Name // $catModel is an object
+		$data['cats'] = $catModel->catList($table);
+
+		$this->view->render("backend/post/create",$data);
 	}
 
 	public function store() 
-	{	
+	{
 		$table = "post";
 		$title    = $_POST['title'];
 		$cat_id  = $_POST['cat_id'];

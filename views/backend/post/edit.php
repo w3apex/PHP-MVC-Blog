@@ -46,14 +46,42 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <?php
-                                    foreach ($cat_by_id as $data) {
+                                    foreach ($post_by_id as $data) {
                                 ?>
                                 <form action="<?php echo BASE_URL;?>/Post/update" method="POST" class="form-horizontal">
                                     <input type="hidden" name="id" value="<?php echo $data['id'];?>">
+
                                     <div class="form-group">
-                                        <label for="cat_name" class="col-sm-3 control-label">Post Name</label>
+                                        <label for="title" class="col-sm-3 control-label">Title</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="cat_name" value="<?php echo $data['cat_name'];?>" id="cat_name" class="form-control">
+                                            <input type="text" class="form-control" name="title" id="title" value="<?php echo $data['title'];?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cat_id" class="col-sm-3 control-label">Category</label>
+                                        <div class="col-sm-9">
+                                            <select name="cat_id" id="cat_id" class="form-control">
+                                                <option value="">Select Category</option>
+                                                <?php 
+                                                    //foreach ($cats as $cat) {
+                                                ?>
+                                                <option value="">Select Category 1</option>
+                                                <option value="" selected>Select Category 2</option>
+                                                <option value="">Select Category 3</option>
+                                                <option value="<?php //echo $cat['id'];?>" ><?php //echo $cat['cat_name'];?></option>
+                                                <?php //} ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <?php (condition) ? "selected": "";?>
+
+                                    <div class="form-group">
+                                        <label for="content" class="col-sm-3 control-label">Content</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" name="content" id="content">
+                                                <?php echo $data['content'];?>
+                                            </textarea>
                                         </div>
                                     </div>
 

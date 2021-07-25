@@ -28,8 +28,11 @@ class Database extends PDO {
 		$stmt = $this->prepare($query);
 		
 		foreach ($data as $key => $value) {
-			$stmt->bindParam(":".$key, $value);
+			//$stmt->bindParam(":".$key, $value);
+			$stmt->bindValue(":$key", $value);
+			//echo $key." = ".$value;
 		}
+		//exit();
 		//$stmt->bindParam(":cat_name", $cat_name);
 		return $stmt->execute();
 	}
