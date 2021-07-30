@@ -64,18 +64,14 @@
                                             <select name="cat_id" id="cat_id" class="form-control">
                                                 <option value="">Select Category</option>
                                                 <?php 
-                                                    //foreach ($cats as $cat) {
+                                                    foreach ($cats as $cat) {
                                                 ?>
-                                                <option value="">Select Category 1</option>
-                                                <option value="" selected>Select Category 2</option>
-                                                <option value="">Select Category 3</option>
-                                                <option value="<?php //echo $cat['id'];?>" ><?php //echo $cat['cat_name'];?></option>
-                                                <?php //} ?>
+                                                <option value="<?php echo $cat['id'];?>" <?php echo $data['cat_id'] == $cat['id'] ? "selected": "";?>><?php echo $cat['cat_name'];?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>
-                                    <?php (condition) ? "selected": "";?>
-
+                                    
                                     <div class="form-group">
                                         <label for="content" class="col-sm-3 control-label">Content</label>
                                         <div class="col-sm-9">
@@ -87,7 +83,7 @@
 
                                     <div class="form-group">
                                         <div class="col-sm-offset-3 col-sm-9">
-                                            <button type="submit" class="btn btn-primary" name="catSubmit">Update</button>
+                                            <button type="submit" class="btn btn-primary">Update</button>
                                         </div>
                                     </div>
                                 </form>

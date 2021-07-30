@@ -1,0 +1,54 @@
+.sec-padding {
+    padding: 90px 0 60px;
+}
+
+.sec-secondary-padding{
+  padding: 90px 0;
+}
+
+.sec-title-padding{
+  padding-bottom: 60px;
+}
+
+.sec-title h6 {
+    font-family: 'Rubik', sans-serif;
+    color: #282d41;
+    font-weight: 500;
+    padding-bottom: 13px;
+}
+
+.sec-title h2 > span {
+  color: #83ba3c;
+}
+
+.sec-secondary-title > span{
+  font-size: 16px;
+  color: #83ba3c;
+}
+
+.pb-30 {
+  padding-bottom: 30px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+/*Sidebar*/
+.blog-sidebar .widget {
+    padding-bottom: 60px;
+}
+.blog-sidebar .widget > h4 {
+    display: block;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    position: relative;
+}
+
+ul > li {
+    list-style-type: none;
+    line-height: 40px;
+}
+
+ul > li >a {
+    color: #8f9aa7;
+}

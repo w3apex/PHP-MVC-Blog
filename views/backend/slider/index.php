@@ -9,14 +9,16 @@
 		    <div class="leftside-content-header">
 		        <ul class="breadcrumbs">
 		            <li><i class="fa fa-home" aria-hidden="true"></i><a href="#">Dashboard</a></li>
-		            <li><a href="javascript:avoid(0)">Post</a></li>
-		            <li><a href="javascript:avoid(0)">Manage Post</a></li>
+		            <li><a href="javascript:avoid(0)">Slider</a></li>
+		            <li><a href="javascript:avoid(0)">Manage Slider</a></li>
 		        </ul>
 		    </div>
 		</div>
 		<div class="row animated fadeInUp">
-	        <div class="col-sm-12 col-md-12">
-                <?php
+
+	        <div class="col-sm-12 col-md-8 col-md-offset-2">
+	              <?php
+
                     if (isset($_GET['msg'])) {
                     	$msg = unserialize(urldecode($_GET['msg']));
                         
@@ -25,51 +27,51 @@
                         }
                     }
                 ?>
+
 	            <div class="panel b-primary bt-md">
 	                <div class="panel-content">
 	                    <div class="row">
 	                        <div class="col-xs-6">
-	                            <h4>Manage Post</h4>
+	                            <h4>Manage Slider</h4>
 	                        </div>
 	                        <div class="col-xs-6 text-right">
-	                            <a href="<?php echo BASE_URL; ?>/Post/create" class="btn btn-primary">Add Post</a>
+	                            <a href="<?php echo BASE_URL;?>/Slider/create" class="btn btn-primary">Add Slider</a>
 	                        </div>
 	                    </div>
 	                    <div class="table-responsive">
 	                        <table id="basic-table" class="data-table table table-striped nowrap table-hover table-bordered" cellspacing="0" width="100%">
 	                            <thead>
 		                            <tr>
-		                                <th width="5%">SL.</th>
-		                                <th width="25%">Post Name</th>
-		                                <th width="10%">Category</th>
-		                                <th width="10%">Image</th>
-		                                <th width="40%">Content</th>
-		                                <th width="10%">Action</th>
+										<th>SL.</th>
+						               <th>Title</th>
+						               <th>Sub Title</th>
+						               <th>Image</th>
+						              <th>Action</th>
 		                            </tr>
 	                            </thead>
 	                            <tbody>
 	                            	<?php
-	                            		/*if (isset($cat)) {  */              		
-		                            		$i = 0;
-		                            		foreach ($post as $value) {
-		                            			$i++;
+
+	                            	if (isset($cat)) {
+	                            		
+	                            		$i = 0;
+	                            		foreach ($slide as $slide) {
+	                            			$i++;
 	                            	?>
 	                            	<tr>
 	                            		<td><?php  echo $i; ?></td>
-	                            		<td><?php echo $value['title']; ?></td>
-	                            		<td><?php echo $value['cat_name'];?></td>
+	                            		<td><?php echo $slide['title']; ?></td>
+	                            		<td><?php echo $slide['sub_title']; ?></td>
+	                            		<td><?php echo $slide['image']; ?></td>
+	                            	
 	                            		<td>
-	                            			<img src="<?php echo BASE_URL;?>/public/uploads/<?php echo $value['image'];?>" width="100">
-	                            		</td>
-	                            		<td><?php echo $value['content']; ?></td>
-	                            		<td>
-	                            			<a href="<?php echo BASE_URL;?>/Post/edit/<?php echo $value['id']; ?>">Edit</a> ||
-	                            			<a onclick="return confirm('Are you sure to delete?');" href="<?php echo BASE_URL;?>/Post/destroy/<?php echo $value['id']; ?>">Delete</a>
+	                            			<a href="<?php echo BASE_URL;?>/Slider/edit/<?php echo $slide['id']; ?>">Edit</a> ||
+	                            			<a onclick="return confirm('Are you sure to delete?');" href="<?php echo BASE_URL;?>/Slider/destroy/<?php echo $value['id']; ?>">Delete</a>
 	                            		</td>
 	                            	</tr>
 	                            	<?php	
-	                            			/*}*/
 	                            		}
+	                            	}
 	                            	?>	
 	                            </tbody>
 	                        </table>

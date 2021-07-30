@@ -35,8 +35,8 @@
                     <li class="has-child-item close-item">
                         <a><i class="fa fa-pie-chart" aria-hidden="true"></i><span>Slider Option</span> </a>
                         <ul class="nav child-nav level-1">
-                            <li><a href="#">Create Slider</a></li>
-                            <li><a href="#">All Slider</a></li>
+                            <li><a href="<?php echo BASE_URL;?>/Slider/create/"">Create Slider</a></li>
+                            <li><a href="<?php echo BASE_URL;?>/Slider/show/">All Slider</a></li>
                         </ul>
                     </li>
                 </ul>

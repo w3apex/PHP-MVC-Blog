@@ -78,8 +78,7 @@ class Category extends Controller {
 		} else {
 			$msg['msg'] = "<span style='color:red;'>Category not updated !!</span>";
 		}
-	
-		$this->view->render("backend/category/index", $msg); 
+		header("Location:".BASE_URL."/Category/show?msg=".urlencode(serialize($msg)));
 		
 	}
 	

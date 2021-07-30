@@ -24,16 +24,11 @@ class Database extends PDO {
 		$values = ":".implode(", :", array_keys($data));//:name,:email,:phone
 
 		$query = "INSERT INTO $table($keys) VALUES($values)";
-		//$query = "INSERT INTO $table(name,email,phone,pass) VALUES(:cat_name, :email, :phone, :pass)";
 		$stmt = $this->prepare($query);
 		
 		foreach ($data as $key => $value) {
-			//$stmt->bindParam(":".$key, $value);
 			$stmt->bindValue(":$key", $value);
-			//echo $key." = ".$value;
 		}
-		//exit();
-		//$stmt->bindParam(":cat_name", $cat_name);
 		return $stmt->execute();
 	}
 
@@ -50,9 +45,8 @@ class Database extends PDO {
 		$stmt = $this->prepare($query);
 		
 		foreach ($data as $key => $value) {
-			$stmt->bindParam(":".$key, $value);
+			$stmt->bindValue(":$key", $value);
 		}
-
 		return $stmt->execute();
 	}
 

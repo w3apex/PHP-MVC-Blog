@@ -58,11 +58,16 @@ class Post extends Controller {
 
 	public function edit($id) 
 	{	
-		$table = "post";
-		$data = array();
+		$data    = array();
+		$catTable   = "category";
+		$catModel = $this->view->model("CatModel");//Model Name // $catModel is an object
+		$data['cats'] = $catModel->catList($catTable);
+
+		$postTable = "post";
+		//$data = array();
 		//$id = 2;
 		$postModel = $this->view->model("postModel");
-		$data['post_by_id'] = $postModel->postById($table, $id);
+		$data['post_by_id'] = $postModel->postById($postTable, $id);
 
 		$this->view->render("backend/post/edit",$data);
 	}
@@ -70,12 +75,16 @@ class Post extends Controller {
 	public function update() 
 	{
 		$table = "post";
-		$id       = $_POST['id'];
-		$cat_name = $_POST['cat_name'];
+		$id      = $_POST['id'];
+		$title   = $_POST['title'];
+		$cat_id  = $_POST['cat_id'];
+		$content = $_POST['content'];
 		$cond = "id = $id";
 
 		$data = array(
-			'cat_name' => $cat_name
+			'title'  => $title,
+			'cat_id' => $cat_id,
+			'content'=> $content
 		);
 
 		$postModel = $this->view->model("postModel");
@@ -89,7 +98,7 @@ class Post extends Controller {
 			$msg['msg'] = "<span style='color:red;'>Post not updated !!</span>";
 		}
 	
-		$this->view->render("backend/post/index", $msg); 
+		header("Location:".BASE_URL."/Post/show?msg=".urlencode(serialize($msg)));
 	}
 	
 	public function destroy($id) 
@@ -108,7 +117,7 @@ class Post extends Controller {
 			$msg['msg'] = "<span style='color:red;'>Post not deleted !!</span>";
 		}
 	
-		$this->view->render("backend/post/index", $msg); 
+		header("Location:".BASE_URL."/Post/show?msg=".urlencode(serialize($msg)));
 	}
 }
 
